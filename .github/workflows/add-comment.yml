@@ -3,14 +3,15 @@ on:
  pull_request:
  issues:
 
-permissions:
- issues: read
+
  
 env:
  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
 jobs:
  comment_issue:
+  permissions:
+   issues: read
   name: comment-issue-job
   runs-on: ubuntu-latest
   steps: 
