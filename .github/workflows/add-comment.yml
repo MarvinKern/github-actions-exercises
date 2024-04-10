@@ -8,6 +8,7 @@ env:
  
 jobs:
  comment_issue:
+  if: github.event.issue.labels == "bug"
   permissions:
    issues: write
   name: comment-issue-job
