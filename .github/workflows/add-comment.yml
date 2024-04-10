@@ -3,6 +3,9 @@ on:
  pull_request:
  issues:
 
+permissions:
+ issues: read
+
 jobs:
  comment_issue:
   name: comment-issue-job
@@ -10,5 +13,7 @@ jobs:
   steps: 
   - uses: actions/checkout@v3
   - name: create a comment with git cli
+    env:
+     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     run: |
-      gh issue comment ${{ github.event.issue.number }} --body "Hello from the GitHub workflow"
+      gh issue comment ${{ github.event.issue.number }} --body "This is my test comment created with a workflow using github cli"
