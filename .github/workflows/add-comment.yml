@@ -3,8 +3,6 @@ on:
  pull_request:
  issues:
 
-
- 
 env:
  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
  
