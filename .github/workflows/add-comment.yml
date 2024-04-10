@@ -17,3 +17,13 @@ jobs:
   - name: create a comment with git cli
     run: |
       gh issue comment ${{ github.event.issue.number }} --body "This is my test comment created with a workflow using github cli"
+  - name: create a comment with github action
+    uses: actions/github-script@v6
+    with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
