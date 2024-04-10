@@ -1,1 +1,14 @@
+name: add comment on issue
+on: 
+ pull_request:
+ issues:
 
+jobs:
+ comment_issue:
+  name: comment-issue-job
+  runs-on: ubunut-latest
+  steps: 
+  - uses: actions/checkout@v3
+  - name: create a comment with git cli
+    run: |
+      gh issue comment create --body "Hello World" --issue 1
