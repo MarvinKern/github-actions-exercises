@@ -1,7 +1,7 @@
 name: add comment on issue
 on: 
  pull_request:
- issues:
+ issues: [opened]
 
 env:
  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
